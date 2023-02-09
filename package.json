@@ -1,0 +1,33 @@
+{
+  "name": "asx-timekeeping",
+  "version": "1.0.0",
+  "description": "Airspeed Express Timeekeeping",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "compile:sass": "sass --watch scss:public/scss/assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlantsz/asx-timekeeping.git"
+  },
+  "keywords": [
+    "ASX-Timekeeping",
+    "Airspeed-Express-Timekeeping"
+  ],
+  "author": "Dave Lanto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlantsz/asx-timekeeping/issues"
+  },
+  "homepage": "https://github.com/dlantsz/asx-timekeeping#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.3.0",
+    "autoprefixer": "^10.4.13",
+    "bootstrap": "^5.2.3",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.58.0"
+  }
+}

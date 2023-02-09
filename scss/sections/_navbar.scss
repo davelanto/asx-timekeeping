@@ -1,0 +1,12 @@
+@use "../custom" as *;
+
+.menu{
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    font-weight: 600;
+    letter-spacing: .4px;
+    font-size: 14px;
+    img{
+        width:6%;
+    }
+}
