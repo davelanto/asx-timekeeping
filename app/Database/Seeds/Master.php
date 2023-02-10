@@ -12,5 +12,6 @@ class Master extends Seeder
         $this->call('Department');
         $this->call('Employee');
         $this->call('Users');
+        $this->call('Designation');
     }
 }
