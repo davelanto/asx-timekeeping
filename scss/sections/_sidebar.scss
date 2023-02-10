@@ -1,0 +1,72 @@
+@use "../custom" as *;
+
+#sidebar {
+  margin: 0;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  width: 300px;
+
+  .logo-title{
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .timeDiv{
+    margin-top: 2rem;
+    color: white;
+    text-align: center;
+    font-size:1.5rem;
+    font-weight: 900;
+  }
+
+  .dateDiv{
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+  }
+
+  .credit-label{
+    font-size: 14px;
+    position: absolute;
+    text-align: center;
+    margin: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+  }
+
+  @include media-breakpoint-down(xl){
+    width: 180px;
+    padding: 10px;
+
+    .timeDiv{
+      margin-top: 2rem;
+      color: white;
+      text-align: center;
+      font-size:1rem;
+      font-weight: 900;
+    }
+    .dateDiv{
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
+    .logo-title{
+      font-size: 8px;
+      font-weight: 600;
+    }
+    .qr-title{
+      font-size: .8rem;
+    }
+    .credit-label{
+      display: none;
+    }
+
+  }
+
+}

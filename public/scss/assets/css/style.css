@@ -1770,7 +1770,7 @@ progress {
 }
 
 .table-sm > :not(caption) > * > * {
-  padding: 0.25rem 0.25rem;
+  padding: 0.3rem 0.25rem;
 }
 
 .table-bordered > :not(caption) > * {
@@ -10779,6 +10779,106 @@ textarea.form-control-lg {
 }
 .menu img {
   width: 6%;
+}
+
+#sidebar {
+  margin: 0;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  width: 300px;
+}
+#sidebar .logo-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+#sidebar .timeDiv {
+  margin-top: 2rem;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+#sidebar .dateDiv {
+  color: white;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+#sidebar .credit-label {
+  font-size: 14px;
+  position: absolute;
+  text-align: center;
+  margin: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+}
+@media (max-width: 1199.98px) {
+  #sidebar {
+    width: 180px;
+    padding: 10px;
+  }
+  #sidebar .timeDiv {
+    margin-top: 2rem;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 900;
+  }
+  #sidebar .dateDiv {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+  #sidebar .logo-title {
+    font-size: 8px;
+    font-weight: 600;
+  }
+  #sidebar .qr-title {
+    font-size: 0.8rem;
+  }
+  #sidebar .credit-label {
+    display: none;
+  }
+}
+
+body {
+  background-color: #EEF4F7;
+}
+
+#timekeeping {
+  margin-left: 330px;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+#timekeeping .innerContainer {
+  padding: 0;
+  width: 100%;
+  border-radius: 15px;
+}
+#timekeeping td {
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #EEF4F7;
+  vertical-align: middle !important;
+}
+@media (max-width: 1199.98px) {
+  #timekeeping {
+    margin-left: 200px;
+  }
+  #timekeeping td {
+    font-size: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #EEF4F7;
+    vertical-align: middle !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
