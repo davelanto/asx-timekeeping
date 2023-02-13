@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Models\BranchModel;
+use App\Models\DepartmentModel;
+use App\Models\DesignationModel;
+use App\Models\EmployeeModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -54,5 +58,11 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $this->session = \Config\Services::session();
+        $this->employeeModel = new EmployeeModel();
+        $this->branchModel = new BranchModel();
+        $this->departmentModel = new DepartmentModel();
+        $this->designationModel = new DesignationModel();
+        helper('form');
     }
 }

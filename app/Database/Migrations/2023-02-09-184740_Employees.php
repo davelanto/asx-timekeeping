@@ -27,11 +27,15 @@ class Employees extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '30',
             ],
-            'EmBranch' => [
+            'EmBrID' => [
                 'type' => 'INT',
                 'constraint' => 1,
             ],
-            'EmDepartment' => [
+            'EmDeID' => [
+                'type' => 'INT',
+                'constraint' => 1,
+            ],
+            'EmEdID' => [
                 'type' => 'INT',
                 'constraint' => 1,
             ],

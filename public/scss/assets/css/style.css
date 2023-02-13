@@ -10771,6 +10771,7 @@ textarea.form-control-lg {
   }
 }
 .menu {
+  margin-left: 300px;
   font-family: "Roboto", sans-serif;
   position: relative;
   font-weight: 600;
@@ -10780,8 +10781,14 @@ textarea.form-control-lg {
 .menu img {
   width: 6%;
 }
+@media (max-width: 1199.98px) {
+  .menu {
+    margin-left: 180px;
+  }
+}
 
 #sidebar {
+  top: 0;
   margin: 0;
   padding: 20px;
   position: fixed;
@@ -10879,6 +10886,49 @@ body {
     border-bottom: 2px solid #EEF4F7;
     vertical-align: middle !important;
   }
+}
+
+#adminmenu {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+#adminmenu img {
+  width: 6%;
+}
+
+#employee {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+#employee--title {
+  font-size: 30px;
+}
+#employee .menu-button button {
+  font-size: 12px;
+}
+#employee table td {
+  padding-left: 40px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #EEF4F7;
+  vertical-align: middle !important;
+}
+@media (max-width: 1199.98px) {
+  #employee table {
+    margin-left: 200px;
+  }
+  #employee table td {
+    font-size: 12px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #EEF4F7;
+    vertical-align: middle !important;
+  }
+}
+#employee input, #employee select, #employee button {
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */

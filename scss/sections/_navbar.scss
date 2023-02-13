@@ -1,6 +1,7 @@
 @use "../custom" as *;
 
 .menu{
+    margin-left: 300px;
     font-family: 'Roboto', sans-serif;
     position: relative;
     font-weight: 600;
@@ -8,5 +9,8 @@
     font-size: 14px;
     img{
         width:6%;
+    }
+    @include media-breakpoint-down(xl) {
+        margin-left: 180px;
     }
 }
