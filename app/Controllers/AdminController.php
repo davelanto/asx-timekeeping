@@ -20,8 +20,10 @@ class AdminController extends BaseController
 
     public function employee()
     {
-
-        $data['employees'] = $this->employeeModel->getEmployees();
+        $data['page'] = isset($_GET['page']) ? $_GET['page'] : 1;
+        $data['total'] = $this->employeeModel->countAllResults();
+        $data['perPage'] = 10;
+        $data['data'] = $this->employeeModel->getEmployees();
         $data['pager'] = $this->employeeModel->pager;
         $data['branches'] = $this->branchModel->findAll();
         $data['departments'] = $this->departmentModel->findAll();

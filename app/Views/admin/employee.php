@@ -37,7 +37,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($employees as $employee): ?>
+                <?php foreach ($data as $employee): ?>
                     <tr>
                         <td><?= $employee->EmAltID; ?></td>
                         <td><?= $employee->EmFirstName; ?></td>
@@ -53,6 +53,7 @@
                 </tbody>
             </table>
         </div>
+        <?= $pager->makeLinks($page, $perPage, $total, 'custom_pagination'); ?>
     </div>
 
     <div class="modal fade" id="modalEmployee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

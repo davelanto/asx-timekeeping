@@ -63,17 +63,17 @@ class EmployeeModel extends Model
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
+
     public function getEmployees()
     {
-        $builder = $this->db->table('tblemployees a');
-        $builder->select('a.EmAltID, a.EmFirstName, a.EmLastName, b.BrName, c.DeName, d.EdName, a.EmCreatedAt, a.EmUpdatedAt, a.EmDeletedAt');
-        $builder->join('tblbranches b', 'a.EmBrID = b.BrID', 'INNER');
-        $builder->join('tbldepartments c', 'c.DeID = a.EmDeID', 'INNER');
-        $builder->join('tblemployeesdesignation d', 'd.EdID = a.EmEdID', 'INNER');
-        $builder->orderBy('a.EmID', 'DESC');
-        $query = $builder->get();
-
-        return $query->getResult();
-
+        return $this
+            ->select('tblemployees.EmAltID, tblemployees.EmFirstName, 
+             tblemployees.EmLastName, tblbranches.BrName, tbldepartments.DeName, tblemployeesdesignation.EdName,
+             tblemployees.EmCreatedAt, tblemployees.EmUpdatedAt, tblemployees.EmDeletedAt')
+            ->join('tblbranches', 'tblemployees.EmBrID = tblbranches.BrID', 'INNER')
+            ->join('tbldepartments', 'tbldepartments.DeID = tblemployees.EmDeID', 'INNER')
+            ->join('tblemployeesdesignation', 'tblemployeesdesignation.EdID = tblemployees.EmEdID', 'INNER')
+            ->orderBy('tblemployees.EmID', 'DESC')
+            ->paginate(10);
     }
 }
