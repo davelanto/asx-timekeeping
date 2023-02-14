@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Employee Pagination">
         <ul class="pagination">
             <?php if($pager->hasPrevious()): ?>
                 <li class="page-item"><a href="<?= $pager->getFirst() ?>" class="page-link">First</a></li>
@@ -21,6 +21,6 @@
         </nav>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <div class="fw-light fs-italic text-muted text-end">Showing <?= (($page * $perPage) - $perPage +1) ."-". (($page * $perPage) - $perPage + count($data))  ?> Result out of <?= number_format($total) ?></div>
+        <div class="fw-light fs-italic text-end">Showing <?= (($page * $perPage) - $perPage +1) ."-". (($page * $perPage) - $perPage + count($data))  ?> Result out of <?= number_format($total) ?></div>
     </div>
 </div>

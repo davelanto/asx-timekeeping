@@ -10907,6 +10907,9 @@ body {
 #employee .menu-button button {
   font-size: 12px;
 }
+#employee .page-item a {
+  font-size: 14px !important;
+}
 #employee table td {
   padding-left: 40px;
   padding-top: 20px;
