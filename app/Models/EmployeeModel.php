@@ -14,7 +14,7 @@ class EmployeeModel extends Model
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = ['EmAltID', 'EmFirstName', 'EmLastName',
-        'EmBrID', 'EmDeID', 'EmEdID', ''];
+        'EmBrID', 'EmDeID', 'EmEdID', 'EmID'];
 
     // Dates
     protected $useTimestamps = true;
@@ -24,10 +24,10 @@ class EmployeeModel extends Model
     protected $deletedField  = 'EmDeletedAt';
 
     // Validation
-    protected $validationRules      = [
-        'EmAltID' =>  'required|alpha_numeric|min_length[6]|is_unique[tblemployees.EmAltID]',
-        'EmFirstName' => 'required|alpha_space',
-        'EmLastName' => 'required|alpha_space',
+    protected $validationRules = [
+        'EmAltID' =>  'required|alpha_numeric|min_length[6]|is_unique[tblemployees.EmAltID,EmID,{EmID}]',
+        'EmFirstName' => 'required',
+        'EmLastName' => 'required',
         'EmBrID' => 'required|numeric',
         'EmDeID' => 'required|numeric',
         'EmEdID' => 'required|numeric'
@@ -41,11 +41,9 @@ class EmployeeModel extends Model
             'alpha_numeric' => 'Your Employee ID may only contain alphabetical characters and numeric.'
         ],
         'EmFirstName' => [
-            'alpha_space' => 'Your first name may only contain alphabetical characters and spaces.',
             'required' => 'Your first name is required.'
         ],
         'EmLastName' => [
-            'alpha_space' => 'Your last name may only contain alphabetical characters and spaces.',
             'required' => 'Your last name is required.'
         ],
         'EmBrID' => [
@@ -60,19 +58,22 @@ class EmployeeModel extends Model
 
     ];
 
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
-
-
-    public function getEmployees()
+    public function get($search)
     {
         return $this
-            ->select('tblemployees.EmAltID, tblemployees.EmFirstName, 
+            ->select('tblemployees.EmID ,tblemployees.EmAltID, tblemployees.EmFirstName, 
              tblemployees.EmLastName, tblbranches.BrName, tbldepartments.DeName, tblemployeesdesignation.EdName,
              tblemployees.EmCreatedAt, tblemployees.EmUpdatedAt, tblemployees.EmDeletedAt')
             ->join('tblbranches', 'tblemployees.EmBrID = tblbranches.BrID', 'INNER')
             ->join('tbldepartments', 'tbldepartments.DeID = tblemployees.EmDeID', 'INNER')
             ->join('tblemployeesdesignation', 'tblemployeesdesignation.EdID = tblemployees.EmEdID', 'INNER')
+            ->like('tblemployees.EmAltID', "$search", 'both')
+            ->orLike('tblemployees.EmAltID', "$search", 'both')
+            ->orLike('tblemployees.EmFirstName', "$search", 'both')
+            ->orLike('tblemployees.EmLastName', "$search", 'both')
+            ->orLike('tblbranches.BrName', "$search", 'both')
+            ->orLike('tbldepartments.DeName', "$search", 'both')
+            ->orLike('tblemployeesdesignation.EdName', "$search", 'both')
             ->orderBy('tblemployees.EmID', 'DESC')
             ->paginate(10);
     }

@@ -1,6 +1,6 @@
 <?php $pager->setSurroundCount(1)  ?>
 
-<div class="row">
+<div class="row mt-4">
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <nav aria-label="Employee Pagination">
         <ul class="pagination">
@@ -21,6 +21,6 @@
         </nav>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-        <div class="fw-light fs-italic text-end">Showing <?= (($page * $perPage) - $perPage +1) ."-". (($page * $perPage) - $perPage + count($data))  ?> Result out of <?= number_format($total) ?></div>
+        <div class="fw-normal fs-italic text-primary text-end">Showing <?= (($page * $perPage) - $perPage +1) ."-". (($page * $perPage) - $perPage + count($data))  ?> Result out of <?= number_format($total) ?></div>
     </div>
 </div>

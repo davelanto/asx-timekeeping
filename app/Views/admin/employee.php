@@ -4,28 +4,37 @@
             Employee Record
         </div>
         <?php if($session->has('success')):?>
-            <div class="alert alert-primary text-center fw-semibold mx-auto me-2 mt-2 mb-3 alert-dismissible fade show" role="alert"> A new employee has been added! <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
+            <div class="alert alert-primary text-center fw-semibold mx-auto me-2 mt-2 mb-3 alert-dismissible fade show" role="alert"> <?=$session->success;?> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
         <?php endif;?>
         <div class="row mb-3 menu-button">
-            <div class="col-3">
-                <input type="text" class="form-control" id="searchBar" placeholder="Search">
+            <div class="col-6">
+                <form action="/search-employee" method="post">
+                    <div class="row g-2 align-items-cente">
+                        <div class="col-5">
+                            <input type="text" class="form-control" id="searchBar" name="search" placeholder="Search">
+                        </div>
+                        <div class="col-5">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-6 ms-auto text-end">
-                <button class="btn btn-outline-dark rounded-pill" data-bs-toggle="modal"
-                        data-bs-target="#modalEmployee"><i class="fa-solid fa-plus"></i> New Employee
+                <button class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal"
+                        data-bs-target="#modalEmployee" id="btnAddEmployee"><i class="fa-solid fa-plus fa-lg"></i> New Employee
                 </button>
-                <button class="btn btn-outline-dark opacity-75 rounded-pill"><i class="fa-solid fa-pen-to-square"></i>
-                    Update Employee
+                <button class="btn btn-outline-dark opacity-75 rounded-pill" id="btnEditEmployee"><i class="fa-solid fa-pen-to-square fa-lg"></i>
+                    Edit Employee
                 </button>
-                <button class="btn btn-outline-danger rounded-pill"><i class="fa-solid fa-trash"></i> Delete Employee
+                <button class="btn btn-outline-danger rounded-pill" id="btnDeleteEmployee"><i class="fa-solid fa-user fa-lg"></i> Activate/De-activate Employee
                 </button>
             </div>
         </div>
         <div class="col-md-12 p-0 shadow table-wrapper">
             <table class="table table-borderless bg-light table-responsive">
                 <thead class="bg-opacity-10 bg-black fw-semibold">
-                <tr>
-                    <td>ID</td>
+                <tr aria-readonly="true">
+                    <td>QR Code</td>
                     <td>First Name</td>
                     <td>Last Name</td>
                     <td>Branch</td>
@@ -39,15 +48,16 @@
                 <tbody>
                 <?php foreach ($data as $employee): ?>
                     <tr>
+                        <td hidden><?= $employee->EmID; ?></td>
                         <td><?= $employee->EmAltID; ?></td>
                         <td><?= $employee->EmFirstName; ?></td>
                         <td><?= $employee->EmLastName; ?></td>
                         <td><?= $employee->BrName; ?></td>
                         <td><?= $employee->DeName; ?></td>
                         <td><?= $employee->EdName; ?></td>
-                        <td><?= $employee->EmCreatedAt; ?></td>
-                        <td><?= $employee->EmUpdatedAt; ?></td>
-                        <td><?= $employee->EmDeletedAt; ?></td>
+                        <td><?= date('Y-m-d', strtotime($employee->EmCreatedAt)); ?></td>
+                        <td><?= date('Y-m-d', strtotime($employee->EmUpdatedAt)); ?></td>
+                        <td><?= is_null($employee->EmDeletedAt) ? 'Yes' : 'No'; ?></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -64,7 +74,8 @@
                     <h1 class="modal-title fs-5" id="modalEmployee">New Employee</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="/new-employee" method="POST">
+                <form action="/save-employee" method="POST">
+                    <input type="hidden" name="EmID" value="<?= $session->posts['EmID'] ?? '' ?>">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="altID" class="form-label">Employee ID:</label>

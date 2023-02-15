@@ -30,9 +30,29 @@ class Employee extends Seeder
                 'EmUpdatedAt'   =>  '2023-02-10 03:30:00'
             ),
             array(
-                'EmFirstName'   =>  'Juan',
-                'EmLastName'    =>  'Dela Cruz',
-                'EmAltID'       =>  'AIC123',
+                'EmFirstName'   =>  'Aprilyn',
+                'EmLastName'    =>  'Abayata',
+                'EmAltID'       =>  'TGL0054',
+                'EmBrID'      =>  '3',
+                'EmDeID'  =>  '3',
+                'EmEdID' =>  '3',
+                'EmCreatedAt'   =>  '2023-02-10 03:30:00',
+                'EmUpdatedAt'   =>  '2023-02-10 03:30:00'
+            ),
+            array(
+                'EmFirstName'   =>  'Cindy',
+                'EmLastName'    =>  'Cariño',
+                'EmAltID'       =>  'TGL0059',
+                'EmBrID'      =>  '3',
+                'EmDeID'  =>  '3',
+                'EmEdID' =>  '3',
+                'EmCreatedAt'   =>  '2023-02-10 03:30:00',
+                'EmUpdatedAt'   =>  '2023-02-10 03:30:00'
+            ),
+            array(
+                'EmFirstName'   =>  'Mary Angelique',
+                'EmLastName'    =>  'Sadiua',
+                'EmAltID'       =>  'AIC479',
                 'EmBrID'      =>  '3',
                 'EmDeID'  =>  '3',
                 'EmEdID' =>  '3',

@@ -21,20 +21,23 @@
   }
 
   table{
+    tbody > tr{
+      cursor: pointer;
+    }
+    .table-active{
+      color: white !important;
+      background-color: $primary;
+
+    }
     td{
-      padding-left: 40px;
-      padding-top: 20px;
-      padding-bottom: 10px;
+      padding: 20px 20px 10px;
       border-bottom: 2px solid #EEF4F7;
       vertical-align: middle !important;
     }
     @include media-breakpoint-down(xl){
-      margin-left: 200px;
       td{
         font-size: 12px;
-        padding-left: 20px;
-        padding-top: 5px;
-        padding-bottom: 5px;
+        padding: 5px 10px;
         border-bottom: 2px solid #EEF4F7;
         vertical-align: middle !important;
       }
@@ -44,5 +47,6 @@
   input,select,button{
     font-size: 12px;
   }
+
 
 }
