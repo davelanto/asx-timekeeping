@@ -2,6 +2,7 @@ $(document).ready(function (){
     $('#modalEmployee').on('hidden.bs.modal', function () {
         $(this).find("input").val('').end();
         $(this).find("select").prop('selectedIndex',0).end();
+        $(this).find('input').removeClass('is-invalid');
     });
     $('#modalEmployee').on('shown.bs.modal', function () {
         $('input[name="altID"]').focus();

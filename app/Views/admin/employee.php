@@ -47,7 +47,7 @@
                 </thead>
                 <tbody>
                 <?php foreach ($data as $employee): ?>
-                    <tr>
+                    <tr class="<?= isset($session->posts['EmID']) && $session->posts['EmID'] == $employee->EmID ? 'table-active' : '' ;?>">
                         <td hidden><?= $employee->EmID; ?></td>
                         <td><?= $employee->EmAltID; ?></td>
                         <td><?= $employee->EmFirstName; ?></td>
@@ -109,9 +109,9 @@
                                 <div class="mb-3">
                                     <label for="branch" class="form-label">Branch:</label>
                                     <select class="form-select <?=isset($session->errors['EmBrID']) ? 'is-invalid' : '';?>" name="branch" aria-label="Branches" required>
-                                        <option selected disabled>--Select branch--</option>
+                                        <option  disabled>--Select branch--</option>
                                         <?php foreach ($branches as $branch): ?>
-                                            <option value="<?= $branch->BrID ?>"><?= $branch->BrName ?></option>
+                                            <option <?= isset($session->posts['EmBrID']) && $session->posts['EmBrID'] == $branch->BrID ? 'selected' : '' ;?> value="<?= $branch->BrID ?>"><?= $branch->BrName ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <div id="branchFeedback" class="invalid-feedback">
@@ -125,7 +125,7 @@
                                     <select class="form-select <?=isset($session->errors['EmDeID']) ? 'is-invalid' : '';?>" name="department" aria-label="Department" required>
                                         <option selected disabled>--Select Department--</option>
                                         <?php foreach ($departments as $department): ?>
-                                            <option value="<?= $department->DeID; ?>"><?= $department->DeName; ?></option>
+                                            <option <?= isset($session->posts['EmDeID']) && $session->posts['EmDeID'] == $department->DeID ? 'selected' : '' ;?> value="<?= $department->DeID; ?>"><?= $department->DeName; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <div id="departmentFeedback" class="invalid-feedback">
@@ -140,7 +140,7 @@
                                 <select class="form-select <?=isset($session->errors['EmEdID']) ? 'is-invalid' : '';?>" name="designation" aria-label="Designation" required>
                                     <option selected disabled>--Select Designation--</option>
                                     <?php foreach ($designations as $designation): ?>
-                                        <option value="<?= $designation->EdID; ?>"><?= $designation->EdName; ?></option>
+                                        <option <?= isset($session->posts['EmEdID']) && $session->posts['EmEdID'] == $designation->EdID ? 'selected' : '' ;?> value="<?= $designation->EdID; ?>"><?= $designation->EdName; ?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <div id="designationFeedback" class="invalid-feedback">
