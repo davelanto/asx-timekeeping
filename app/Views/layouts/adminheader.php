@@ -11,22 +11,28 @@
 </head>
 <body>
 <section id="adminmenu" class="adminmenu">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary navbar-dark">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary navbar-dark shadow-lg">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="<?=base_url('images/logo.png');?>" alt=""></a>
+            <a class="navbar-brand" href="#"><img src="<?=base_url('images/logo.png');?>" width="50" height="50" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+                        <a class="nav-link <?=$active == 'dashboard' ? 'active' : '';?>" aria-current="page" href="#">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?=base_url('/employee')?>">Employees</a>
+                        <a class="nav-link d-inline-block" aria-current="page" target="_blank" href="/">Timekeeping <i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Reports</a>
+                        <a class="nav-link <?=$active == 'employee' ? 'active' : '';?>" aria-current="page" href="<?=base_url('/employee')?>">Employees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?=$active == 'setting' ? 'active' : '';?>" aria-current="page" href="<?=base_url('/setting')?>">Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?=$active == 'report' ? 'active' : '';?>" aria-current="page" href="#">Reports</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

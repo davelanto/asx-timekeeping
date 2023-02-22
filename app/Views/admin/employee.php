@@ -1,25 +1,25 @@
 <section id="employee" class="employee">
     <div class="container mt-4 mb-5">
-        <div id="employee--title" class="text-black opacity-75 fw-bolder my-5">
+        <div id="employee--title" class="text-black opacity-75 fw-bolder my-sm-5 my-4">
             Employee Record
         </div>
         <?php if($session->has('success')):?>
             <div class="alert alert-primary text-center fw-semibold mx-auto me-2 mt-2 mb-3 alert-dismissible fade show" role="alert"> <?=$session->success;?> <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
         <?php endif;?>
         <div class="row mb-3 menu-button">
-            <div class="col-6">
-                <form action="/search-employee" method="post">
+            <div class="col-lg-6 col-md-6 mb-3 mb-sm-0">
+                <form action="/employee" method="post">
                     <div class="row g-2 align-items-cente">
-                        <div class="col-5">
-                            <input type="text" class="form-control" id="searchBar" name="search" placeholder="Search">
+                        <div class="col-sm-5 col-6">
+                            <input type="text" class="form-control" id="searchBar" name="search" placeholder="Search" value="<?= $search ?? '';?>">
                         </div>
-                        <div class="col-5">
+                        <div class="col-sm-5 col-6">
                             <button type="submit" class="btn btn-primary">Search</button>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="col-6 ms-auto text-end">
+            <div class="col-lg-6 ms-auto text-end">
                 <button class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal"
                         data-bs-target="#modalEmployee" id="btnAddEmployee"><i class="fa-solid fa-plus fa-lg"></i> New Employee
                 </button>
@@ -30,8 +30,8 @@
                 </button>
             </div>
         </div>
-        <div class="col-md-12 p-0 shadow table-wrapper">
-            <table class="table table-borderless bg-light table-responsive">
+        <div class="col-md-12 p-0 shadow table-wrapper table-responsive">
+            <table class="table table-borderless bg-light">
                 <thead class="bg-opacity-10 bg-black fw-semibold">
                 <tr aria-readonly="true">
                     <td>QR Code</td>
@@ -46,6 +46,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                <?php if($data): ?>
                 <?php foreach ($data as $employee): ?>
                     <tr class="<?= isset($session->posts['EmID']) && $session->posts['EmID'] == $employee->EmID ? 'table-active' : '' ;?>">
                         <td hidden><?= $employee->EmID; ?></td>
@@ -60,10 +61,16 @@
                         <td><?= is_null($employee->EmDeletedAt) ? 'Yes' : 'No'; ?></td>
                     </tr>
                 <?php endforeach; ?>
+                <?php else: ?>
+                <tr>
+                    <td colspan="9" class="text-center" readonly>No result found</td>
+                </tr>
+                <?php endif;?>
                 </tbody>
             </table>
         </div>
-        <?= $pager->makeLinks($page, $perPage, $total, 'custom_pagination'); ?>
+            <?= $pager_links; ?>
+
     </div>
 
     <div class="modal fade" id="modalEmployee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -71,7 +78,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="modalEmployee">New Employee</h1>
+                    <h1 class="modal-title fs-5" id="modalEmployeeTitle">New Employee</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="/save-employee" method="POST">

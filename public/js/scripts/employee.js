@@ -19,6 +19,7 @@ $(document).ready(function (){
     $('#btnAddEmployee').click(function (){
         $('#modalEmployee').find("input").val('').end();
         $('#modalEmployee').find("select").prop('selectedIndex',0).end();
+        $('#modalEmployeeTitle').text('New Employee');
     });
 
     $('#btnEditEmployee').click(function (){
@@ -50,15 +51,20 @@ $(document).ready(function (){
                 find('td:nth-child(7)').text();
             }).prop('selected', true);
 
+            $('#modalEmployeeTitle').text('Edit Employee');
             $('#modalEmployee').modal('toggle');
         }
     });
 
     $('#btnDeleteEmployee').click(function (){
-        var id = $('.table-active').find('td:nth-child(1)').text();
+        let id = $('.table-active').find('td:nth-child(1)').text();
+        let active = $('.table-active').find('td:nth-child(10)').text();
         if($('table tbody tr.table-active').length === 1){
-            $.post( "/delete-employee",  { id: id }, function( data ) {
+            $.post( "/delete-employee",  { id: id, active: active }, function( data ) {
                 location.reload();
+
+            }).fail(function (response){
+                console.log(response);
             });
         }
     });

@@ -16,9 +16,21 @@ class DesignationModel extends Model
     protected $allowedFields    = ['EdName'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'EdCreatedAt';
     protected $updatedField  = 'EdUpdatedAt';
     protected $deletedField  = 'EdDeletedAt';
+
+    // Validation
+    protected $validationRules = [
+        'EdName' =>  'required|is_unique[tblemployeesdesignation.EdName,EdID,{EdID}]'
+    ];
+
+    protected $validationMessages   = [
+        'EdName' => [
+            'required' => 'Designation name is required.',
+            'is_unique' => 'This designation name is already existing.'
+        ]
+    ];
 }

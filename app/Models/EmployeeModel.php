@@ -14,7 +14,7 @@ class EmployeeModel extends Model
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = ['EmAltID', 'EmFirstName', 'EmLastName',
-        'EmBrID', 'EmDeID', 'EmEdID', 'EmID'];
+        'EmBrID', 'EmDeID', 'EmEdID', 'EmID', 'EmDeletedAt'];
 
     // Dates
     protected $useTimestamps = true;
@@ -75,6 +75,6 @@ class EmployeeModel extends Model
             ->orLike('tbldepartments.DeName', "$search", 'both')
             ->orLike('tblemployeesdesignation.EdName', "$search", 'both')
             ->orderBy('tblemployees.EmID', 'DESC')
-            ->paginate(10);
+            ->paginate(10, 'employee');
     }
 }

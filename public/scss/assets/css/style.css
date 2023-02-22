@@ -10893,9 +10893,6 @@ body {
   font-size: 14px;
   font-weight: 600;
 }
-#adminmenu img {
-  width: 6%;
-}
 
 #employee {
   font-family: "Roboto", sans-serif;
@@ -10932,6 +10929,42 @@ body {
 }
 #employee input, #employee select, #employee button {
   font-size: 12px;
+}
+
+#branch, #department, #designation, #setting, .alert-notification {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+#branch--title, #department--title, #designation--title, #setting--title, .alert-notification--title {
+  font-size: 20px;
+}
+#branch table tbody > tr, #department table tbody > tr, #designation table tbody > tr, #setting table tbody > tr, .alert-notification table tbody > tr {
+  cursor: pointer;
+}
+#branch table .table-active, #department table .table-active, #designation table .table-active, #setting table .table-active, .alert-notification table .table-active {
+  color: white !important;
+  background-color: #005EB8;
+}
+#branch table td, #department table td, #designation table td, #setting table td, .alert-notification table td {
+  padding: 10px 10px 10px;
+  border-bottom: 2px solid #EEF4F7;
+  vertical-align: middle !important;
+}
+@media (max-width: 1199.98px) {
+  #branch table td, #department table td, #designation table td, #setting table td, .alert-notification table td {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-bottom: 2px solid #EEF4F7;
+    vertical-align: middle !important;
+  }
+}
+#branch input, #branch select, #branch button, #department input, #department select, #department button, #designation input, #designation select, #designation button, #setting input, #setting select, #setting button, .alert-notification input, .alert-notification select, .alert-notification button {
+  font-size: 12px;
+}
+
+#setting--title {
+  font-size: 30px;
+  font-family: "Roboto", sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */

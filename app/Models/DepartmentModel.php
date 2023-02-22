@@ -16,9 +16,21 @@ class DepartmentModel extends Model
     protected $allowedFields    = ['DeName'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'DeCreatedAt';
     protected $updatedField  = 'DeUpdatedAt';
     protected $deletedField  = 'DeDeletedAt';
+
+    // Validation
+    protected $validationRules = [
+        'DeName' =>  'required|is_unique[tbldepartments.DeName,DeID,{DeID}]'
+    ];
+
+    protected $validationMessages   = [
+        'DeName' => [
+            'required' => 'Department name is required.',
+            'is_unique' => 'This department name is already existing.'
+        ]
+    ];
 }

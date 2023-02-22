@@ -14,20 +14,25 @@ class EmployeeController extends BaseController
     {
         $post = $this->request->getPost();
 
+        $pager = service('pager');
+        $data = $this->employeeModel->withDeleted()->get($post['search'] ?? '');
+        $pager_links = $pager->links('employee', 'custom_pagination');
+
         $data = [
-            'page' => $_GET['page'] ?? 1,
+            'search' => $post['search'] ?? '',
+            'data' => $data,
             'total' => $this->employeeModel->countAllResults(),
-            'perPage' => 10,
-            'data' => $this->employeeModel->withDeleted()->get($post['search'] ?? ''),
+            'pager_links' => $pager_links,
             'pager' => $this->employeeModel->pager,
             'branches' => $this->branchModel->findAll(),
             'departments' => $this->departmentModel->findAll(),
             'designations' => $this->designationModel->findAll(),
-            'session' => $this->session
+            'session' => $this->session,
+            'active' => 'employee'
         ];
 
-        echo view('layouts/adminheader');
-        echo view('admin/employee', $data);
+        echo view('layouts/adminheader', $data);
+        echo view('admin/employee');
         echo view('layouts/adminfooter');
     }
 
@@ -59,7 +64,15 @@ class EmployeeController extends BaseController
     public function delete()
     {
         $post = $this->request->getPost();
-        $this->employeeModel->delete($post['id']);
-        $this->session->setFlashdata('success', 'Employee account has been deactivated!');
+        if (strtolower($post['active']) == 'no'){
+            $this->employeeModel
+                ->where('EmID', $post['id'])
+                ->set('EmDeletedAt', null)
+                ->update();
+        }else{
+            $this->employeeModel->delete($post['id']);
+        }
+
+        $this->session->setFlashdata('success', strtolower($post['active']) == 'no' ? 'Employee account has been activated' :'Employee account has been deactivated!');
     }
 }

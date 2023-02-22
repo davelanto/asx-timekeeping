@@ -30,11 +30,30 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+
+//Dashboard Routes
 $routes->get('/dashboard', 'DashboardController::index');
+
+//Employee Routes
 $routes->get('/employee', 'EmployeeController::get');
 $routes->post('/save-employee', 'EmployeeController::save');
 $routes->post('/delete-employee', 'EmployeeController::delete');
-$routes->post('/search-employee', 'EmployeeController::get');
+$routes->post('/employee', 'EmployeeController::get');
+
+//Settings Routes
+$routes->get('/setting', 'SettingController::get');
+$routes->post('/setting', 'SettingController::get');
+
+//Branch Routes
+$routes->post('/save-branch', 'BranchController::save');
+
+//Department Routes
+$routes->post('/save-department', 'DepartmentController::save');
+
+//Designation Routes
+$routes->post('/save-designation', 'DesignationController::save');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

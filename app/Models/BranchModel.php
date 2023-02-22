@@ -16,9 +16,21 @@ class BranchModel extends Model
     protected $allowedFields    = ['BrName'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'BrCreatedAt';
     protected $updatedField  = 'BrUpdatedAt';
     protected $deletedField  = 'BrDeletedAt';
+
+    // Validation
+    protected $validationRules = [
+        'BrName' =>  'required|is_unique[tblbranches.BrName,BrID,{BrID}]'
+    ];
+
+    protected $validationMessages   = [
+        'BrName' => [
+            'required' => 'Branch name is required.',
+            'is_unique' => 'This branch name is already in use.'
+        ]
+    ];
 }
