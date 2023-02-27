@@ -3,30 +3,76 @@ body{
   background-color: #EEF4F7;
 }
 #timekeeping{
-  margin-left: 330px;
+  margin-left: 310px;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
+
+  &--title{
+    font-size: 30px;
+  }
+
   .innerContainer{
     padding: 0;
     width: 100%;
     border-radius: 15px;
   }
-  td{
-    padding-left: 40px;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #EEF4F7;
-    vertical-align: middle !important;
+  .master-table{
+    table{
+      margin: 0;
+      td{
+        padding: 20px 20px 10px;
+        border-bottom: 1px solid #EEF4F7;
+        vertical-align: middle !important;
+      }
+      @include media-breakpoint-down(xl){
+        td{
+          font-size: 12px;
+          padding: 5px 10px;
+          border-bottom: 1px solid #EEF4F7;
+          vertical-align: middle !important;
+        }
+      }
+      .row-active{
+        background-color: $primary;
+        color: white;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+      }
+    }
   }
+
   @include media-breakpoint-down(xl){
     margin-left: 200px;
-    td{
-      font-size: 12px;
-      padding-left: 20px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      border-bottom: 2px solid #EEF4F7;
-      vertical-align: middle !important;
+    .master-table {
+      td {
+        font-size: 12px;
+        padding-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid #EEF4F7;
+        vertical-align: middle !important;
+      }
+    }
+  }
+
+  #timekeepingModal{
+    img{
+      width: 80%;
+    }
+
+    table{
+      font-size: 11px;
+    }
+    .btn{
+      font-size: 14px;
+    }
+    input[name="commitRecord"]:disabled{
+      cursor: not-allowed;
+      background-color: #a8a0a0;
+      border: 1px solid #a8a0a0;
+      color: #1a1e21;
     }
   }
 }

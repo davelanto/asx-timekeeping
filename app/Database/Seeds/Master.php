@@ -13,5 +13,7 @@ class Master extends Seeder
         $this->call('Employee');
         $this->call('Users');
         $this->call('Designation');
+        $this->call('TimekeepingLogs');
+        $this->call('Timekeeping');
     }
 }

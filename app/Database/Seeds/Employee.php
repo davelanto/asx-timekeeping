@@ -43,9 +43,9 @@ class Employee extends Seeder
                 'EmFirstName'   =>  'Cindy',
                 'EmLastName'    =>  'Cariño',
                 'EmAltID'       =>  'TGL0059',
-                'EmBrID'      =>  '3',
-                'EmDeID'  =>  '3',
-                'EmEdID' =>  '3',
+                'EmBrID'      =>  '4',
+                'EmDeID'  =>  '2',
+                'EmEdID' =>  '4',
                 'EmCreatedAt'   =>  '2023-02-10 03:30:00',
                 'EmUpdatedAt'   =>  '2023-02-10 03:30:00'
             ),
@@ -53,8 +53,8 @@ class Employee extends Seeder
                 'EmFirstName'   =>  'Mary Angelique',
                 'EmLastName'    =>  'Sadiua',
                 'EmAltID'       =>  'AIC479',
-                'EmBrID'      =>  '3',
-                'EmDeID'  =>  '3',
+                'EmBrID'      =>  '5',
+                'EmDeID'  =>  '2',
                 'EmEdID' =>  '3',
                 'EmCreatedAt'   =>  '2023-02-10 03:30:00',
                 'EmUpdatedAt'   =>  '2023-02-10 03:30:00'

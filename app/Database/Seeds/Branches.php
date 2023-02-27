@@ -30,7 +30,7 @@ class Branches extends Seeder
                 'BrUpdatedAt'   =>  '2023-02-10 03:30:00'
             ),
             array(
-                'BrName'   =>  'Asenan',
+                'BrName'   =>  'Asinan',
                 'BrCreatedAt'   =>  '2023-02-10 03:30:00',
                 'BrUpdatedAt'   =>  '2023-02-10 03:30:00'
             ),

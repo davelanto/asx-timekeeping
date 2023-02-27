@@ -33,7 +33,7 @@
                          </button>
                      </div>
                  </div>
-                 <div class="col-12">
+                 <div class="col-12 mb-2">
                      <table class="table table-borderless bg-light table-responsive text-center">
                          <thead class="bg-opacity-10 bg-black fw-semibold">
                          <tr aria-readonly="true">
@@ -86,7 +86,7 @@
                          </button>
                      </div>
                  </div>
-                 <div class="col-12">
+                 <div class="col-12 mb-2">
                      <table class="table table-borderless bg-light table-responsive text-center">
                          <thead class="bg-opacity-10 bg-black fw-semibold">
                          <tr aria-readonly="true">
@@ -139,7 +139,7 @@
                          </button>
                      </div>
                  </div>
-                 <div class="col-12">
+                 <div class="col-12 mb-2">
                      <table class="table table-borderless bg-light table-responsive text-center">
                          <thead class="bg-opacity-10 bg-black fw-semibold">
                          <tr aria-readonly="true">

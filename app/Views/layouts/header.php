@@ -7,6 +7,7 @@
     <title>ASX - Productivity Monitoring</title>
     <link rel="stylesheet" href="<?=base_url('scss/assets/css/style.css');?>">
     <link rel="stylesheet" href="<?=base_url('scss/assets/css/fontawesome.css');?>">
+    <script src="<?=base_url('/js/jquery/dist/jquery.js');?>"></script>
 </head>
 <body>
 <div id="menu" class="menu">
@@ -30,20 +31,20 @@
         <div class="text-light logo-title">ASX Productivity Monitoring</div>
     </div>
     <hr class="bg-light">
-    <div class="timeDiv">10:18:39 PM</div>
-    <div class="dateDiv">FEB 10</div>
+    <div class="timeDiv">00:00:00 AM</div>
+    <div class="dateDiv text-uppercase">jan 1</div>
     <div class="my-4 text-center">
         <img src="<?=base_url('images/qr.png');?>" class="w-50 mb-2" alt="">
         <div class="text-center fw-semibold text-light mb-2 qr-title">Scan your QR Code</div>
-        <input type="text" class="form-control form-control text-center" id="qrInput" placeholder="AIC781">
-        <div class="mt-2 d-grid">
-            <button class="btn btn-danger">Confirm</button>
-        </div>
+        <form action="/get-employee-record" method="POST">
+            <input type="text" class="form-control form-control text-center" name="qrID" id="qrID" placeholder="QR ID" autofocus>
+            <div class="mt-2 d-grid">
+                <button type="submit" class="btn btn-danger" >Confirm</button>
+            </div>
+        </form>
     </div>
-
     <div class="text-white-50 credit-label">
         © ASX Management
     </div>
     </div>
 </section>
-4

@@ -30,7 +30,7 @@
                 </button>
             </div>
         </div>
-        <div class="col-md-12 p-0 shadow table-wrapper table-responsive">
+        <div class="col-md-12 p-0 shadow table-wrapper table-responsive mb-3">
             <table class="table table-borderless bg-light">
                 <thead class="bg-opacity-10 bg-black fw-semibold">
                 <tr aria-readonly="true">

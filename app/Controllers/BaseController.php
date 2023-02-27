@@ -6,6 +6,8 @@ use App\Models\BranchModel;
 use App\Models\DepartmentModel;
 use App\Models\DesignationModel;
 use App\Models\EmployeeModel;
+use App\Models\TimekeepingLogModel;
+use App\Models\TimekeepingModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -58,11 +60,14 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        date_default_timezone_set('Asia/Manila');
         $this->session = \Config\Services::session();
         $this->employeeModel = new EmployeeModel();
         $this->branchModel = new BranchModel();
         $this->departmentModel = new DepartmentModel();
         $this->designationModel = new DesignationModel();
+        $this->timekeepingModel = new TimekeepingModel();
+        $this->timekeepinglogModel = new TimekeepingLogModel();
         helper('form');
     }
 }
