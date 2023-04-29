@@ -29,6 +29,9 @@
                         <a class="nav-link <?=$active == 'employee' ? 'active' : '';?>" aria-current="page" href="<?=base_url('/employee')?>">Employees</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link <?=$active == 'schedule' ? 'active' : '';?>" aria-current="page" href="<?=base_url('/schedule')?>">Schedule</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link <?=$active == 'setting' ? 'active' : '';?>" aria-current="page" href="<?=base_url('/setting')?>">Settings</a>
                     </li>
                     <li class="nav-item">

@@ -1,0 +1,43 @@
+@use "../custom" as *;
+
+#schedule{
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+
+  &--title{
+    font-size: 30px;
+  }
+
+  table{
+    margin: 0;
+    td{
+      padding: 14px 20px 10px;
+      border-bottom: 1px solid #EEF4F7;
+      vertical-align: middle !important;
+    }
+    @include media-breakpoint-down(xl){
+      td{
+        font-size: 12px;
+        padding: 5px 10px;
+        border-bottom: 1px solid #EEF4F7;
+        vertical-align: middle !important;
+      }
+    }
+    .row-active{
+      background-color: $primary;
+      color: white;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+    }
+  }
+
+  #reportrange{
+    background: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    width: 100%
+  }
+}

@@ -11008,4 +11008,43 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+#schedule {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+#schedule--title {
+  font-size: 30px;
+}
+#schedule table {
+  margin: 0;
+}
+#schedule table td {
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid #EEF4F7;
+  vertical-align: middle !important;
+}
+@media (max-width: 1199.98px) {
+  #schedule table td {
+    font-size: 12px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #EEF4F7;
+    vertical-align: middle !important;
+  }
+}
+#schedule table .row-active {
+  background-color: #005EB8;
+  color: white;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+#schedule #reportrange {
+  background: #fff;
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */

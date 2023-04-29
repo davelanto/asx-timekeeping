@@ -6,6 +6,7 @@ use App\Models\BranchModel;
 use App\Models\DepartmentModel;
 use App\Models\DesignationModel;
 use App\Models\EmployeeModel;
+use App\Models\ScheduleModel;
 use App\Models\TimekeepingLogModel;
 use App\Models\TimekeepingModel;
 use CodeIgniter\Controller;
@@ -68,6 +69,7 @@ abstract class BaseController extends Controller
         $this->designationModel = new DesignationModel();
         $this->timekeepingModel = new TimekeepingModel();
         $this->timekeepinglogModel = new TimekeepingLogModel();
+        $this->scheduleModel = new ScheduleModel();
         helper('form');
     }
 }

@@ -56,6 +56,12 @@ $routes->post('/save-department', 'DepartmentController::save');
 //Designation Routes
 $routes->post('/save-designation', 'DesignationController::save');
 
+//Schedule routes
+$routes->get('/schedule', 'ScheduleController::get');
+$routes->post('/schedule', 'ScheduleController::get');
+$routes->post('/upload-schedule', 'ScheduleController::upload');
+$routes->get('/delete-schedule/(:num)', 'ScheduleController::remove/$1');
+
 
 /*
  * --------------------------------------------------------------------

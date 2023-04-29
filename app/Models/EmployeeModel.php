@@ -75,6 +75,6 @@ class EmployeeModel extends Model
             ->orLike('tbldepartments.DeName', "$search", 'both')
             ->orLike('tblemployeesdesignation.EdName', "$search", 'both')
             ->orderBy('tblemployees.EmID', 'DESC')
-            ->paginate(10, 'employee');
+            ->paginate(3, 'employee');
     }
 }
